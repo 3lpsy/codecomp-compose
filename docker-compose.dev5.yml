@@ -15,6 +15,7 @@ services:
     ports:
       - "127.0.0.1:8080:8080"
       - "127.0.0.1:8443:8443"
+    # this configuration requires manual refreshes
     environment:
       - SERVER=nginx
       - TLS_ENABLED=0
@@ -28,9 +29,9 @@ services:
     volumes:
       - ${CODECOMP_DIR}/codecomp/build:/var/www/app
     networks:
-      boucanpub:
-    depends_on:
-      - backend
+      codecomppub0:
+    # depends_on:
+    #   - backend
 networks:
   codecomppub0:
     # Use a custom driver

@@ -9,10 +9,10 @@ function print_usage() {
      echo '    $ ./compose.sh [env] [compose options]'
      echo ''
      echo 'Examples:'
-     echo '    $ ./compose.sh dev build --no-cache'
-     echo '    $ ./compose.sh dev down -v '
-     echo '    $ ./compose.sh dev up'
-     echo '    $ ./compose.sh dev fresh'
+     echo '    $ ./compose.sh dev5 build --no-cache'
+     echo '    $ ./compose.sh dev5 down -v '
+     echo '    $ ./compose.sh dev5 up'
+     echo '    $ ./compose.sh dev5 fresh'
      exit 0;
 }
 
