@@ -1,4 +1,18 @@
-# About
+# Super Quick Getting Started
+
+Setting up and dev environment. Assumes that ~/codecomp is where you want all repos and that docker/docker-compose are ready.
+
+```
+$ mkdir ~/codecomp
+$ cd ~/codecomp
+$ git clone https://github.com/3lpsy/codecomp-compose.git
+$ cd codecomp-compose
+$ REPO_PROTO=https REPO_OWNER=white105 ./setup.sh ~/codecomp
+$ ./compose dev4 build
+$ ./compose dev4 fresh
+```
+
+# Details
 
 This is a simple Compose project for managing and starting CodeComp services. It's currently aimed at development and not production. The setup.sh script can be used for easy cloning and setting up new environments for testing. The compose.sh is a simple wrapper to allow for customized file locations. If you want to skip the setup and already have the repos cloned you can just do the following to get started manually:
 
