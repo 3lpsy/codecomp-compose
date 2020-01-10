@@ -27,15 +27,31 @@ $ cp setup.env.example setup.env
 If you have all the branches forked, you can clone them with setup:
 
 ```
-$ REPO_OWNER=white105 ./setup.sh;
-$ REPO_BRANCH=master REPO_PREFIX=Special REPO_OWNER=white105 ./setup.sh;
+# basic example
+$ REPO_OWNER=white105 ./setup.sh /path/to/meta/directory;
+# unauthenticated example
+# use REPO_PROTO=https if you don't own repos / not authenticated
+$ REPO_PROTO=https REPO_OWNER=3lpsy ./setup.sh;
 ```
 
-You can read env.source.example for additional information about options.
+This is what I run (I use my forks, you may just want to use white105):
+
+```
+$ mkdir ~/codecomp;
+$ cd codecomp;
+# clone compose under the meta CODECOMP_DIR, you don't have to
+$ git clone https://github.com/3lpsy/codecomp-compose.git
+$ cd codecomp-compose
+$ REPO_OWNER=3lpsy ./setup.sh ~/codecomp
+## but if i'm unauthenticated, i run
+$ REPO_PROTO=https REPO_OWNER=3lpsy ./setup.sh ~/codecomp
+```
+
+You can read setup.env.example for additional information about options.
 
 ## Running
 
-The compose.sh script will pass all options after the env to the docker-compose command.
+The compose.sh script will pass all options after the env to the docker-compose command. The env corresponds to the docker-compose file where each compose file is 'docker-compose.ENV.yml'
 
 ```
 BucanCompose: A Compose Project for Boucan
@@ -43,16 +59,16 @@ Usage:
     $ ./compose.sh [env] [compose options]
 
 Examples:
-    $ ./compose.sh dev build --no-cache
-    $ ./compose.sh dev down -v
-    $ ./compose.sh dev up
-    $ ./compose.sh dev fresh
+    $ ./compose.sh dev5 build --no-cache
+    $ ./compose.sh dev5 down -v
+    $ ./compose.sh dev5 up
+    $ ./compose.sh dev5 fresh
 ```
 
 There is a special command called fresh which is the equivalent of running:
 
 ```
-$ ./compose.sh dev down -v && ./compose.sh dev up
+$ ./compose.sh dev5 down -v && ./compose.sh dev5 up
 ```
 
 ### Firewalld

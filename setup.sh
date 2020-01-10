@@ -51,7 +51,17 @@ function setup_repo () {
     _repo_owner=${REPO_OWNER:-$_default_repo_owner}
     _repo_prefix="${REPO_PREFIX}";
     _repo_branch="${REPO_BRANCH:-master}";
-    _repo_base_url="${REPO_BASE_URL:-git@github.com:${_repo_owner}}";
+    _repo_proto="${REPO_PROTO:-git}"
+    _repo_provider=${REPO_PROVIDER:-github.com}
+    if [ "git" = "$_repo_proto" ]; then
+        _proto_prefix="git@"
+        _user_delim=":"
+    else
+        # https://
+        _proto_prefix="${_repo_proto}://"
+        _user_delim="/"
+    fi
+    _repo_base_url="${REPO_BASE_URL:-${_proto_prefix}${_repo_provider}${_user_delim}${_repo_owner}}";
 
     repo_source="${_repo_base_url}/${_repo_prefix}${repo}";
     repo_dest="${_CODECOMP_DIR}/$repo";
