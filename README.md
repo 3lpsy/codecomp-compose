@@ -53,8 +53,17 @@ You can read setup.env.example for additional information about options.
 
 The compose.sh script will pass all options after the env to the docker-compose command. The env corresponds to the docker-compose file where each compose file is 'docker-compose.ENV.yml'
 
+Getting started:
+
 ```
-BucanCompose: A Compose Project for Boucan
+$ ./compose.sh dev5 build
+$ ./compose.sh dev5 fresh
+```
+
+Usage:
+
+```
+CodeCompCompose: A Compose Project for CodeComp
 Usage:
     $ ./compose.sh [env] [compose options]
 
