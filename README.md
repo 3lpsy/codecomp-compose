@@ -56,8 +56,18 @@ The compose.sh script will pass all options after the env to the docker-compose 
 Getting started:
 
 ```
-$ ./compose.sh dev5 build
-$ ./compose.sh dev5 fresh
+# dev4 has no nginx proxy (uses npm)
+# so backend must be exposed to host
+$ ./compose.sh dev4 build
+$ ./compose.sh dev4 fresh
+
+# dev5 proxies backend but syncs "build" for frontend
+$ cd /path/to/frontend/compose
+$ export REACT_APP_API_URL=http://127.0.0.1:9090
+$ npm run watch
+# in a separate terminal
+$ ./compose dev5 build
+$ ./compose dev5 fresh
 ```
 
 Usage:
