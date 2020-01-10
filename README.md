@@ -32,21 +32,20 @@ For this reason, the dev compose project makes heavy use of volumes. You will wa
 
 **Please run from inside the Compose directory**
 
-If you want to customize your setup without specifying the options on the CLI, you can do the following:
-
-```
-$ cp setup.env.example setup.env
-```
-
 If you have all the branches forked, you can clone them with setup:
 
 ```
-# basic example
-$ REPO_OWNER=white105 ./setup.sh /path/to/meta/directory;
+# basic example (assumes you don't own repos / unauth git)
+$ REPO_PROTO=https ./setup.sh /path/to/meta/directory;
+
+# forks example, assumes you've forked all projects and are authed (git/ssh)
+$ REPO_OWNER=3lpsy ./setup.sh /path/to/meta/directory;
 # unauthenticated example
-# use REPO_PROTO=https if you don't own repos / not authenticated
-$ REPO_PROTO=https REPO_OWNER=3lpsy ./setup.sh;
+
+# check setup.env.example for more options
 ```
+
+### Full Setup
 
 This is what I run (I use my forks, you may just want to use white105):
 
@@ -59,6 +58,12 @@ $ cd codecomp-compose
 $ REPO_OWNER=3lpsy ./setup.sh ~/codecomp
 ## but if i'm unauthenticated, i run
 $ REPO_PROTO=https REPO_OWNER=3lpsy ./setup.sh ~/codecomp
+```
+
+If you want to customize your setup without specifying the options on the CLI, you can do the following:
+
+```
+$ cp setup.env.example setup.env
 ```
 
 You can read setup.env.example for additional information about options.
